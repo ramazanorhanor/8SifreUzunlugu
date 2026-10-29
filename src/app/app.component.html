@@ -1,0 +1,35 @@
+<h1>Şifre Oluşturucu</h1>
+
+<div>
+  <label >Şifre Uzunluğu</label>
+  <input type="text" (change)="modifyLength($event.target.value)" />
+</div>
+
+
+<div>
+  <label>Alfabeyi Kullan</label>
+  <input (change)="modifyLetters()" type="checkbox">
+</div>
+
+
+<div>
+  <label>Sayıları Kullan</label>
+  <input (change)="modifyNumbers()" type="checkbox">
+</div>
+
+
+<div>
+  <label>Sembolleri Kullan</label>
+  <input (change)="modifySymbols()" type="checkbox">
+</div>
+
+<div>
+  <button (click)="buttonClick()">Oluştur</button>
+</div>
+
+
+<div>
+  <label>Şifreniz</label>
+  <input >
+</div>
+

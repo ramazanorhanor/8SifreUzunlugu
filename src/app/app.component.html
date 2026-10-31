@@ -24,12 +24,12 @@
 </div>
 
 <div>
-  <button (click)="buttonClick()">Oluştur</button>
+  <button [disabled] = "!((includeLetters || includeNumbers || includeSymbols)&& length > 0)" (click)="buttonClick()">Oluştur</button>
 </div>
 
 
 <div>
   <label>Şifreniz</label>
-  <input >
+  <input [value]="password" type="text" readonly />
 </div>
 

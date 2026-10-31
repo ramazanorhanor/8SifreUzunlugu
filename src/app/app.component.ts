@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+  password:string = '';  
   length:number = 0;
   includeLetters:boolean = false;
   includeNumbers:boolean = false;
@@ -21,29 +21,42 @@ export class AppComponent {
         this.length =parsedValue;
       }
   }
-
-
   modifyLetters()
   {
     this.includeLetters = !this.includeLetters;
   }
-
   modifyNumbers()
   {
     this.includeNumbers = !this.includeNumbers;
   }
-
   modifySymbols()
   {
     this.includeSymbols = !this.includeSymbols;
   }
-
   buttonClick() {
-    console.log(`Değerlerim;
-    Letters : ${this.includeLetters}
-    Numbers : ${this.includeNumbers}
-    Symbols : ${this.includeSymbols}
-    `);
+   const numbers = '1234567890';
+   const letters = 'abcdefghijklmnopqrstuvwxyz';
+   const symbols = '!@#$%^&*()_+';
+  
+    let validChars = '';
+    if(this.includeLetters)
+    {
+      validChars += letters;
+    }
+    if(this.includeNumbers)
+    {
+      validChars += numbers;
+    }
+    if(this.includeSymbols)
+    {
+      validChars += symbols;
+    } 
+  let generatedPassword = '';
+  for(let i = 0; i < this.length; i++)
+  {
+    const index = Math.floor(Math.random() * validChars.length);
+    generatedPassword += validChars[index];
   }
-
+this.password = generatedPassword;
+  }
 }
